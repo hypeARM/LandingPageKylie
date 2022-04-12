@@ -361,6 +361,11 @@ svg {
 	font-size: 1em;
 	clip: auto !important;
 }
+@media (max-width: 1650px) {
+    .search-box {
+        margin-left: 20%;
+    }
+}
 @media (max-width: 1416px) {
     .logo {
         font-size: 21px;
