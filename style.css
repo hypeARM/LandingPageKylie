@@ -128,7 +128,7 @@ nav {
 .linha-quebra {
     background-image: url("img/kylieskin.png");
     border: 1px solid black;
-    height: 6vh;
+    height: 63px;
 }
 .product-list-row {
     display: flex;
