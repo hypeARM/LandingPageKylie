@@ -9,7 +9,7 @@ Landing Page e re-design da página Web da marca **Kylie Skin** por Kylie Jenner
  - CSS
  - JavaScript.
 ## Link 
-
+https://liviavianna.github.io/LandingPageKylie/
 ## Cores Utilizadas
 ![enter image description here](https://64.media.tumblr.com/7d185975cbf47c73814c22363f625514/971c4ac2321d2c85-f4/s100x200/68005953e23e6fde08924cb5df2ddfa49bce80fe.pnj)
 ![enter image description here](https://64.media.tumblr.com/948bf906862a3c2413e52fe3dcb7be52/971c4ac2321d2c85-4f/s100x200/57d6601633b2ae3bb01b42a623170a4a5c7d3bf6.pnj)
