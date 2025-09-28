@@ -1,69 +1,35 @@
-class MobileNavbar {
-    constructor(mobileMenu, navList, navLinks) {
-      this.mobileMenu = document.querySelector(mobileMenu);
-      this.navList = document.querySelector(navList);
-      this.navLinks = document.querySelectorAll(navLinks);
-      this.activeClass = "active";
-  
-      this.handleClick = this.handleClick.bind(this);
-    }
-  
-    animateLinks() {
-      this.navLinks.forEach((link, index) => {
-        link.style.animation
-          ? (link.style.animation = "")
-          : (link.style.animation = `navLinkFade 0.5s ease forwards ${
-              index / 7 + 0.3
-            }s`);
-      });
-    }
-  
-    handleClick() {
-      this.navList.classList.toggle(this.activeClass);
-      this.mobileMenu.classList.toggle(this.activeClass);
-      this.animateLinks();
-    }
-  
-    addClickEvent() {
-      this.mobileMenu.addEventListener("click", this.handleClick);
-    }
-  
-    init() {
-      if (this.mobileMenu) {
-        this.addClickEvent();
-      }
-      return this;
-    }
-  }
-  
-  const mobileNavbar = new MobileNavbar(
-    ".mobile-menu",
-    ".nav-list",
-    ".nav-list li",
-  );
-  mobileNavbar.init();
-const scrollToTopButton = document.getElementById('js-top');
+const menuBtn = document.getElementById('menu-btn')
+const menuMobile = document.getElementById('menu-mobile')
 
-const scrollFunc = () => {
-  let y = window.scrollY;
-  
-  if (y > 0) {
-    scrollToTopButton.className = "top-link show";
+let menuOpen = false
+
+menuBtn.addEventListener('click', () => {
+  menuOpen = !menuOpen
+
+  if (menuOpen) {
+    menuBtn.classList.add('active')
+    menuMobile.classList.remove('max-h-0', 'opacity-0', 'invisible')
+    menuMobile.classList.add('max-h-screen', 'opacity-100', 'visible')
   } else {
-    scrollToTopButton.className = "top-link hide";
+    menuBtn.classList.remove('active')
+    menuMobile.classList.remove('max-h-screen', 'opacity-100', 'visible')
+    menuMobile.classList.add('max-h-0', 'opacity-0', 'invisible')
   }
-};
+})
 
-window.addEventListener("scroll", scrollFunc);
+const topBtn = document.getElementById('js-top')
 
-const scrollToTop = () => {
-  const c = document.documentElement.scrollTop || document.body.scrollTop;
-  if (c > 0) {
-    window.requestAnimationFrame(scrollToTop);
-    window.scrollTo(0, c - c / 10);
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    topBtn.classList.remove('hidden')
+  } else {
+    topBtn.classList.add('hidden')
   }
-};
-scrollToTopButton.onclick = function(e) {
-  e.preventDefault();
-  scrollToTop();
-}
+})
+
+topBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+})

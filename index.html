@@ -1,141 +1,332 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="img/apple-touch-icon.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400&display=swap" rel="stylesheet">
-    <title>Kylie Skin | Kylie Cosmetics by Kylie Jenner</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <a class="logo" href="#"><strong>KYLIE</strong> SKIN</a>
-            <div class="mobile-menu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>   
-            </div>
-            <ul class="nav-list">
-                <li><a href="#">ROSTO</a></li>
-                <li><a href="#">CORPO</a></li>
-                <li><a href="#">COLEÇÃO</a></li>
-                <li><a href="#">SOBRE</a></li>
-            </ul>
-                <div class="search-box">
-                <input type="text" class="search-txt" placeholder="PESQUISAR">
-                <a href="#" class="search-btn">
-                    <img class="icon" src="img/loupe-svgrepo-com.svg" alt="Lupa" height="18" width="18">
-                </a>
-            </div>
-            <ul class="user-list">
-                <li><img class="user" src="img/user-167.svg" alt="user" height="21" width="21"></li>
-                <li><img class="heart" src="img/heart-svgrepo-com.svg" alt="heart" height="21" width="21"></li>
-                <li><img class="bag" src="img/shopping-bag-svgrepo-com.svg" alt="bag" height="21" width="21"></li>
-            </ul>
-        </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="img/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-pink': '#e7b8cc',
+              'brand-light': 'rgba(228, 193, 208, 0.692)',
+            },
+            fontFamily: {
+              inter: ['Inter', 'sans-serif'],
+            },
+            translate: {
+              'bar-up': '-8px',
+              'bar-down': '8px',
+            },
+            animation: {
+              'menu-open': 'menuOpen 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+              'menu-close': 'menuClose 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+            },
+            keyframes: {
+              menuOpen: {
+                '0%': { maxHeight: '0', opacity: '0', visibility: 'hidden' },
+                '100%': { maxHeight: '100vh', opacity: '1', visibility: 'visible' },
+              },
+              menuClose: {
+                '0%': { maxHeight: '100vh', opacity: '1', visibility: 'visible' },
+                '100%': { maxHeight: '0', opacity: '0', visibility: 'hidden' },
+              },
+            },
+          },
+        },
+      }
+    </script>
+    <title>Kylie Skin | Kylie Cosmetics</title>
+  </head>
+  <body class="font-inter text-black">
+    <header class="fixed top-0 left-0 w-full bg-brand-pink border-b border-black z-50">
+      <nav class="container mx-auto flex items-center h-20 px-4 lg:px-8">
+        <a href="#" class="logo text-white text-2xl lg:text-3xl font-light tracking-wide">
+          <strong class="font-bold">KYLIE</strong> SKIN
+        </a>
+
+        <ul class="hidden lg:flex gap-8 font-bold text-lg tracking-wider ml-12">
+          <li><a href="#" class="hover:text-white transition-colors">ROSTO</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">CORPO</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">COLEÇÃO</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">SOBRE</a></li>
+        </ul>
+
+        <button
+          id="menu-btn"
+          class="relative flex flex-col justify-center items-center w-12 h-12 lg:hidden z-50 group ml-auto"
+        >
+          <span
+            class="absolute w-8 h-0.5 bg-white rounded transition-all duration-300 transform -translate-y-bar-up group-[.active]:translate-y-0 group-[.active]:rotate-45"
+          ></span>
+          <span
+            class="absolute w-8 h-0.5 bg-white rounded transition-all duration-300 group-[.active]:opacity-0"
+          ></span>
+          <span
+            class="absolute w-8 h-0.5 bg-white rounded transition-all duration-300 transform translate-y-bar-down group-[.active]:translate-y-0 group-[.active]:-rotate-45"
+          ></span>
+        </button>
+
+        <div class="hidden lg:flex items-center gap-6 ml-auto">
+          <div class="flex items-center bg-white rounded-full px-3 h-8 w-40 text-sm">
+            <input
+              type="text"
+              placeholder="PESQUISAR"
+              class="w-full outline-none text-black px-1 bg-transparent"
+            />
+            <img src="img/loupe-svgrepo-com.svg" alt="Lupa" class="w-4 h-4" />
+          </div>
+          <ul class="flex items-center gap-4">
+            <li>
+              <img
+                src="img/user-167.svg"
+                alt="user"
+                class="w-5 h-5 transition duration-300 ease-in-out filter hover:invert cursor-pointer"
+              />
+            </li>
+            <li>
+              <img
+                src="img/heart-svgrepo-com.svg"
+                alt="heart"
+                class="w-5 h-5 transition duration-300 ease-in-out filter hover:invert cursor-pointer"
+              />
+            </li>
+            <li>
+              <img
+                src="img/shopping-bag-svgrepo-com.svg"
+                alt="bag"
+                class="w-5 h-5 transition duration-300 ease-in-out filter hover:invert cursor-pointer"
+              />
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <ul
+        id="menu-mobile"
+        class="max-h-0 opacity-0 invisible transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] fixed inset-0 bg-brand-pink flex flex-col items-center justify-center gap-12 text-2xl font-bold tracking-wider z-40 mt-20"
+      >
+        <li><a href="#" class="hover:text-white transition-colors">ROSTO</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">CORPO</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">COLEÇÃO</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">SOBRE</a></li>
+      </ul>
     </header>
-    <main>
-        <section class="main-content">
-            <div class="writing-content-main">
-                <h1>SUPER E SUSTENTÁVEL</h1>
-                <p class="txt1">My Hyaluronic Acid Serum hidrata profundamente e ajuda a melhorar a aparência de linhas finas e tom de pele irregular. Embalado com ingredientes bons para você, esta fórmula leve deixa sua pele com um acabamento hidratado, radiante e cheio.</p>
-                <a class="shop-now" href="#">COMPRE AGORA</a>
-                <img class="p-img-1" src="img/img2.png" alt="product image">            </div>
-         <div class="sec-imgs">
-            <img class="main-img" src="img/img1.png" alt="main image">
-         </div>
-        </section>
-        <div class="linha-quebra"></div>
-        <section class="products-content">
-            <h2 id="new">NEW</h2>
-            <div class="product-list-row">
-                <div class="product-list">
-                    <div class="p-img-3"></div>
-                    <p>VALENTINE'S LIP BALM SET</p>
-                    <p>Nourish + Shine</p>
-                    <p>$29</p>
-                </div>
-                <div class="product-list">
-                    <div class="p-img-4"></div>
-                    <p>CLEAR SKIN DUO</p>
-                    <p>Balance + Smooth</p>
-                    <p>$47.60</p>
-                </div>
-                <div class="product-list">
-                    <div class="p-img-5"></div>
-                    <p>CLEAR SKIN MUST-HAVES</p>
-                    <p>Full Clarifying Routine</p>
-                    <p>$101.15</p>
-                </div>
-            </div>
-            <button class="more-btn">VEJA MAIS</button>
-            <div class="product-collection">
-                    <div class="writing-content">
-                        <h2>MÁSCARA E PINCEL DETOX</h2>
-                        <p>Trate sua pele com uma desintoxicação com esta máscara facial de limpeza, além de nosso pincel de máscara facial torna o mascaramento fácil e sem bagunça!</p>                        <p id="vegan">Vegano e feito de fibras sintéticas.</p>
-                        <button id="mask-btn">SHOP MÁSCARAS</button>
-                    </div>
-                <div class="imgs">
-                    <img class="p-img-left" src="img/img4.png">
-                    <img class="p-img-middle" src="img/img5.png">
-                    <img class="p-img-right" src="img/img6.png">
-                </div>
-            </div>
-            <div class="linha-quebra"></div>
-        </section>
-        <section class="sobre">
-            <div class="writing-about">
-                <h1>SOBRE</h1>
-                <h2>KYLIE SKIN</h2>
-                <p>Skincare e maquiagem andam de mãos dadas e Kylie Skin foi algo que sonhei logo depois da Kylie Cosmetics. Construir minha linha de maquiagem do zero me ensinou muito, e sou muito abençoada com esse conhecimento para aplicar no meu negócio de cuidados com a pele. Criar uma equipe totalmente nova, fabricação, atendimento etc. separado da minha linha de cosméticos foi um desafio, mas aqui estamos! Eu tenho o melhor dos melhores para vocês! Todas as minhas fórmulas são cruelty free, veganas, sem glúten, sem parabenos e sem sulfato. Minha equipe e eu estamos constantemente trabalhando no desenvolvimento de novos produtos para vocês, e mal posso esperar para mostrar o que temos reservado. Tudo começa com a pele.</p>
-                <p>xo, Kylie 💕</p>
-                <p>Certifique-se de seguir <a href="https://www.instagram.com/kylieskin/">@kylieskin</a> para se manter atualizado.</p>
-            </div>
-        </section>
-        <section class="video-page">
-            <h2>ROTINA DIÁRIA DE CUIDADOS COM A PELE DE KYLIE</h2>
-            <iframe class="video-iframe" width="900" height="506" src="https://www.youtube.com/embed/dakFbtpH7hw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </section>
+
+    <main class="pt-24">
+      <section
+        class="container mx-auto flex flex-col lg:flex-row items-center gap-8 px-4 lg:px-8 py-12"
+      >
+        <div class="flex flex-col gap-6 lg:w-1/2 text-center lg:text-left">
+          <h1 class="text-4xl lg:text-6xl font-light">SUPER E SUSTENTÁVEL</h1>
+          <p class="text-gray-700 leading-relaxed">
+            My Hyaluronic Acid Serum hidrata profundamente e ajuda a melhorar a aparência de linhas
+            finas e tom de pele irregular...
+          </p>
+          <a
+            href="#"
+            class="px-8 py-4 border border-black rounded-full hover:bg-black hover:text-white transition-all duration-300 tracking-wider inline-block w-fit mx-auto lg:mx-0"
+          >
+            COMPRE AGORA
+          </a>
+        </div>
+        <div class="flex gap-4 lg:w-1/2">
+          <img src="img/img1.png" alt="main" class="w-1/2 object-contain" />
+          <img src="img/img2.png" alt="product" class="w-1/2 object-contain" />
+        </div>
+      </section>
+
+      <div
+        class="h-16 bg-contain bg-repeat-x bg-center border-y border-black"
+        style="background-image: url('img/kylieskin.png')"
+      ></div>
+
+      <section class="container mx-auto px-4 lg:px-8 py-8 lg:py-12">
+        <h2 id="new" class="text-2xl lg:text-4xl text-center mb-8 lg:mb-12 tracking-wider">NEW</h2>
+        <div
+          class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-6 xl:gap-8 text-center"
+        >
+          <div class="flex flex-col items-center gap-4 w-full max-w-sm lg:max-w-none lg:w-1/3">
+            <div
+              class="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 bg-cover bg-center transition-all duration-300 hover:scale-105"
+              style="background-image: url('img/product1.png')"
+              data-hover="img/product2.png"
+            ></div>
+            <p class="font-semibold text-lg">VALENTINE'S LIP BALM SET</p>
+            <p class="text-gray-600">Nourish + Shine</p>
+            <p class="font-bold text-lg">$29</p>
+          </div>
+          <div class="flex flex-col items-center gap-4 w-full max-w-sm lg:max-w-none lg:w-1/3">
+            <div
+              class="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 bg-cover bg-center transition-all duration-300 hover:scale-105"
+              style="background-image: url('img/product3.png')"
+              data-hover="img/product4.png"
+            ></div>
+            <p class="font-semibold text-lg">CLEAR SKIN DUO</p>
+            <p class="text-gray-600">Balance + Smooth</p>
+            <p class="font-bold text-lg">$47.60</p>
+          </div>
+          <div class="flex flex-col items-center gap-4 w-full max-w-sm lg:max-w-none lg:w-1/3">
+            <div
+              class="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 bg-cover bg-center transition-all duration-300 hover:scale-105"
+              style="background-image: url('img/product5.png')"
+              data-hover="img/product6.png"
+            ></div>
+            <p class="font-semibold text-lg">CLEAR SKIN MUST-HAVES</p>
+            <p class="text-gray-600">Full Clarifying Routine</p>
+            <p class="font-bold text-lg">$101.15</p>
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-8 lg:hidden">
+          <button
+            class="px-8 py-3 border border-black rounded-full hover:bg-black hover:text-white transition-all duration-300 tracking-wider"
+          >
+            VEJA MAIS
+          </button>
+        </div>
+      </section>
+
+      <section class="bg-brand-light px-4 lg:px-8 py-16 lg:py-20">
+        <div class="container mx-auto flex flex-col lg:flex-row items-center gap-12">
+          <div class="flex flex-col gap-6 text-center lg:text-left lg:w-1/2">
+            <h2 class="text-2xl lg:text-3xl tracking-wider">MÁSCARA E PINCEL DETOX</h2>
+            <p>Trate sua pele com uma desintoxicação com esta máscara facial...</p>
+            <p class="text-base">Vegano e feito de fibras sintéticas.</p>
+            <button
+              class="px-8 py-4 border border-black rounded-full hover:bg-black hover:text-white transition-all duration-300 tracking-wider w-fit mx-auto lg:mx-0"
+            >
+              SHOP MÁSCARAS
+            </button>
+          </div>
+          <div class="flex gap-4 lg:w-1/2 justify-center">
+            <img
+              src="img/img4.png"
+              alt="Máscara esquerda"
+              class="w-1/3 object-contain hover:scale-105 transition-transform duration-300"
+            />
+            <img
+              src="img/img5.png"
+              alt="Máscara central"
+              class="w-1/3 object-contain hover:scale-105 transition-transform duration-300"
+            />
+            <img
+              src="img/img6.png"
+              alt="Máscara direita"
+              class="w-1/3 object-contain hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="h-16 bg-contain bg-repeat-x bg-center border-y border-black"
+        style="background-image: url('img/kylieskin.png')"
+      ></div>
+
+      <section class="container mx-auto px-4 lg:px-8 py-16 text-center">
+        <h1 class="text-4xl lg:text-5xl font-light mb-4">SOBRE</h1>
+        <h2 class="text-3xl lg:text-4xl mb-6 tracking-wider">KYLIE SKIN</h2>
+        <p class="max-w-4xl mx-auto leading-relaxed mb-4">
+          Skincare e maquiagem andam de mãos dadas e Kylie Skin foi algo que sonhei logo depois da
+          Kylie Cosmetics...
+        </p>
+        <p class="mb-2">xo, Kylie 💕</p>
+        <p>
+          Certifique-se de seguir
+          <a
+            href="https://www.instagram.com/kylieskin/"
+            class="underline text-black hover:text-gray-700 transition-colors"
+          >
+            @kylieskin
+          </a>
+          para se manter atualizado.
+        </p>
+      </section>
+
+      <section class="container mx-auto px-4 lg:px-8 pb-20 text-center">
+        <h2 class="text-2xl lg:text-3xl mb-8 tracking-wider">
+          ROTINA DIÁRIA DE CUIDADOS COM A PELE DE KYLIE
+        </h2>
+        <iframe
+          width="auto"
+          height="auto"
+          class="w-full lg:w-[900px] h-64 lg:h-[506px] mx-auto rounded-lg shadow-lg"
+          src="https://www.youtube.com/embed/dakFbtpH7hw"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </section>
     </main>
-    <footer>
-        <div class="cnct-container">
-            <h4>CONECTE-SE CONOSCO</h4>
-            <a href="https://www.instagram.com/kyliejenner/">@KYLIEJENNER</a>
-            <a href="https://www.instagram.com/kyliecosmetics/">@KYLIECOSMETICS</a>
-            <a href="https://www.instagram.com/kylieskin/">@KYLIESKIN</a>
+
+    <footer class="bg-black text-white pt-16 pb-8">
+      <div
+        class="container mx-auto px-4 flex flex-col lg:flex-row justify-around items-center lg:items-start gap-12 mb-8"
+      >
+        <div class="text-center lg:text-left">
+          <h4 class="text-2xl font-semibold mb-4">CONECTE-SE CONOSCO</h4>
+          <div class="flex flex-col gap-2">
+            <a
+              href="https://www.instagram.com/kyliejenner/"
+              class="hover:underline transition-colors"
+              >@KYLIEJENNER</a
+            >
+            <a
+              href="https://www.instagram.com/kyliecosmetics/"
+              class="hover:underline transition-colors"
+              >@KYLIECOSMETICS</a
+            >
+            <a href="https://www.instagram.com/kylieskin/" class="hover:underline transition-colors"
+              >@KYLIESKIN</a
+            >
+          </div>
         </div>
-        <div class="quebraLinha-footer"></div>
-        <img class="logoFooter"src="img/logo.png" alt="Kylie Jenner Logo">
-        <div class="help-container">
-            <h4>AJUDA</h4>
-            <ul>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Envios</a></li>
-            </ul>
+        <img
+          src="img/logo.png"
+          alt="Kylie Jenner Logo"
+          class="w-1/2 lg:w-1/6 order-first lg:order-none"
+        />
+        <div class="text-center lg:text-left">
+          <h4 class="text-xl mb-4 tracking-wider">AJUDA</h4>
+          <ul class="flex flex-col gap-2">
+            <li><a href="#" class="hover:underline transition-colors">Contato</a></li>
+            <li><a href="#" class="hover:underline transition-colors">FAQ</a></li>
+            <li><a href="#" class="hover:underline transition-colors">Envios</a></li>
+          </ul>
         </div>
-        <div class="quebraLinha-footer"></div>
-        <div class="terms-container">
-            <ul class="terms-list">
-                <li><a href="#">Política de Privacidade</a></li>
-                <li><a href="#">Termos de uso</a></li>
-                <li><a href="#">Política de Acessibilidade</a></li>
-                <li><a href="#">Termos e Condições</a></li>
-                <li><a href="#">Configurações de cookies</a></li>
-                <li><a href="#">Política de cookies</a></li>
-            </ul>
-            <p>Copyright © 2022 Coty DTC Holdings, LLC. All rights reserved.</p>
-            <a class="top-link hide" href="" id="js-top">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
-                <span class="screen-reader-text">Back to top</span>
-              </a>
-        </div>
+      </div>
+      <div class="border-t border-gray-400 opacity-30 my-8"></div>
+      <div class="container mx-auto px-4 text-center">
+        <ul
+          class="flex flex-col lg:flex-row justify-center gap-4 mb-4 text-gray-400 text-xs flex-wrap"
+        >
+          <li><a href="#" class="hover:underline transition-colors">Política de Privacidade</a></li>
+          <li><a href="#" class="hover:underline transition-colors">Termos de uso</a></li>
+          <li>
+            <a href="#" class="hover:underline transition-colors">Política de Acessibilidade</a>
+          </li>
+          <li><a href="#" class="hover:underline transition-colors">Termos e Condições</a></li>
+          <li>
+            <a href="#" class="hover:underline transition-colors">Configurações de cookies</a>
+          </li>
+          <li><a href="#" class="hover:underline transition-colors">Política de cookies</a></li>
+        </ul>
+        <p class="text-gray-400 text-xs">
+          &copy; 2022 Coty DTC Holdings, LLC. All rights reserved.
+        </p>
+      </div>
     </footer>
-    <script src="script.js"></script>
-</body>
+
+    <button
+      id="js-top"
+      class="hidden fixed bottom-8 right-8 w-12 h-12 flex items-center justify-center rounded-full bg-white hover:bg-brand-pink transition-all duration-300 shadow-lg text-lg font-bold z-40"
+    >
+      ↑
+    </button>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
 </html>
